@@ -6,7 +6,7 @@ import Image from 'next/image'
 import card1 from '@/images/card1.jpg'
 import card2 from '@/images/card2.jpg'
 import card3 from '@/images/card3.jpg'
-import kure from '@/images/Küre.png'
+import kure from '@/images/saturn.jpg'
 
 // Autoplaying coverflow carousel with black background
 export default function StatisticsSection() {

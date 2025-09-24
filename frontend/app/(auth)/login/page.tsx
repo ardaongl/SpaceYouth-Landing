@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Eye, EyeOff, Mail, Lock, User, ArrowRight, Sparkles, Home } from 'lucide-react'
 import Image from 'next/image'
-import underwater from '@/images/Küre.png'
+import underwater from '@/images/saturn.jpg'
 import Link from 'next/link'
 import spaceYouthIcon from '@/images/SpaceYouth.ico'
 
