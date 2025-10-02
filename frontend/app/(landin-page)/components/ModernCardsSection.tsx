@@ -5,43 +5,10 @@ import Image from 'next/image'
 import img1 from '../../../images/card1.jpg'
 import img2 from '../../../images/card2.jpg'
 import img3 from '../../../images/card3.jpg'
-import LogoLoop from '@/components/ui/logo_loop'
-import { SiReact as SiReactIcon, SiNextdotjs as SiNextIcon, SiTypescript as SiTsIcon, SiTailwindcss as SiTwIcon } from 'react-icons/si'
 
 export default function ModernCardsSection() {
-  const iconClass = 'text-[#959595]/30'
-  const IconReact = SiReactIcon as unknown as React.ComponentType<any>
-  const IconNext = SiNextIcon as unknown as React.ComponentType<any>
-  const IconTs = SiTsIcon as unknown as React.ComponentType<any>
-  const IconTw = SiTwIcon as unknown as React.ComponentType<any>
-
-  const techLogos = [
-    { node: React.createElement(IconReact, { size: 100, className: iconClass }), title: 'React', href: 'https://react.dev' },
-    { node: React.createElement(IconNext, { size: 100, className: iconClass }), title: 'Next.js', href: 'https://nextjs.org' },
-    { node: React.createElement(IconTs, { size: 100, className: iconClass }), title: 'TypeScript', href: 'https://www.typescriptlang.org' },
-    { node: React.createElement(IconTw, { size: 100, className: iconClass }), title: 'Tailwind CSS', href: 'https://tailwindcss.com' }
-  ]
-  return (
+return (
     <section className="relative min-h-[75vh] md:min-h-screen overflow-hidden bg-black">
-      {/* Logo loop (preserved) */}
-      <div className="bg-[#0f0f0f] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen pt-6">
-        <div className="w-full mx-auto">
-          <LogoLoop
-            logos={techLogos}
-            speed={40}
-            direction="left"
-            logoHeight={100}
-            gap={40}
-            pauseOnHover
-            scaleOnHover
-            fadeOut
-            fadeOutColor="#ffffff"
-            className="py-1"
-            ariaLabel="Technology partners"
-          />
-        </div>
-      </div>
-
       {/* Header */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 md:pt-16">
         <div className="grid grid-cols-1 md:grid-cols-3 items-start gap-8">

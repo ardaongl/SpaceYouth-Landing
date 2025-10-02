@@ -8,12 +8,14 @@ import StatisticsSection from '@/app/(landin-page)/components/StatisticsSection'
 import FAQSection from '@/app/(landin-page)/components/FAQSection'
 import Footer from '@/app/(landin-page)/components/Footer'
 import TitleSection from '@/app/(landin-page)/components/TitleSection'
+import VideoSection from '@/app/(landin-page)/components/VideoSection'
 
 export default function Home() {
   return (
     <main className="min-h-screen">
       <Header />
       <HeroSection />
+      <VideoSection />
       <ModernCardsSection />
       <CustomerSpotlight />
       <WorkforceManagement />

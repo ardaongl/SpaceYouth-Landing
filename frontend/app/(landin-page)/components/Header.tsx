@@ -10,8 +10,6 @@ import spaceYouthIcon from '@/images/1.png'
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const menuItems = ['Başlangıç', 'Bilgilendirme', 'Akademi', 'Sertifikalar', 'SSS']
-
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 bg-black/60 backdrop-blur-md border-b border-white/10`}
@@ -30,19 +28,6 @@ export default function Header() {
             <h1 className={`relative top-[2px] text-xl font-bold text-white/90`}>SpaceYouth</h1>
           </motion.div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            {menuItems.map((item) => (
-              <motion.a
-                key={item}
-                href="#"
-                className={`relative text-white/90 font-medium after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-white after:w-full after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100`}
-                whileHover={{ y: -2 }}
-              >
-                {item}
-              </motion.a>
-            ))}
-          </nav>
 
           {/* Right side icons */}
           <div className="hidden md:flex items-center space-x-4">
@@ -76,15 +61,6 @@ export default function Header() {
             transition={{ duration: 0.3 }}
           >
             <div className="px-2 pt-2 pb-3 space-y-1 bg-transparent border-0">
-              {menuItems.map((item) => (
-                <a
-                  key={item}
-                  href="#"
-                  className={`relative block px-3 py-2 text-white/90 after:content-[''] after:absolute after:left-3 after:bottom-1 after:h-[2px] after:bg-white after:w-[calc(100%-1.5rem)] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100`}
-                >
-                  {item}
-                </a>
-              ))}
               <div className="flex items-center space-x-4 px-3 py-2">
                 <Link href="/login">
                   <button className={`relative flex items-center space-x-2 text-white/90 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-white after:w-full after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100`}>

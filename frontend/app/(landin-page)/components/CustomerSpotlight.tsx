@@ -33,7 +33,7 @@ export default function CustomerSpotlight() {
               <Image src={imgLeft} alt="Deep space" fill className="object-cover" priority />
             </div>
             <div className="text-white md:pl-6">
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/5 px-4 py-2 ring-1 ring-white/10 text-sm mb-5">
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/5 px-5 py-2.5 ring-1 ring-white/10 text-2xl md:text-3xl font-bold mb-5">
                 <span className="inline-block h-2 w-2 rounded-full bg-emerald-400" />
                 Our Vision
               </div>
@@ -62,7 +62,7 @@ export default function CustomerSpotlight() {
           {/* Row 2: Text Left, Image Right */}
           <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
             <div className="order-2 md:order-1 text-white md:pr-6">
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/5 px-4 py-2 ring-1 ring-white/10 text-sm mb-5">
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/5 px-5 py-2.5 ring-1 ring-white/10 text-2xl md:text-3xl font-bold mb-5">
                 <span className="inline-block h-2 w-2 rounded-full bg-amber-400" />
                 Our Mission
               </div>
