@@ -22,6 +22,37 @@ export default function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState<string | null>(null)
+  const [showTestCredentials, setShowTestCredentials] = useState(false)
+  
+  // Test user credentials
+  const TEST_EMAIL = "test@spaceyouth.com"
+  const TEST_PASSWORD = "Test123!"
+
+  // SSO-like local flow using backend cookie
+  async function handleSSOLogin() {
+    try {
+      setError(null);
+      const response = await fetch('http://localhost:3000/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ 
+          email: TEST_EMAIL, 
+          password: TEST_PASSWORD 
+        })
+      });
+      
+      if (!response.ok) {
+        const errorData = await response.text();
+        throw new Error(errorData || 'Giriş başarısız');
+      }
+      
+      window.location.href = 'http://localhost:3000/auth/callback?redirect=http://localhost:8000/callback';
+    } catch (e: any) {
+      console.error('SSO Login Error:', e);
+      setError(e.message || 'Giriş sırasında bir hata oluştu');
+    }
+  }
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -95,6 +126,26 @@ export default function Login() {
               </div>
 
               <h1 className="mb-6 text-center text-2xl font-bold text-gray-900">Giriş Yap</h1>
+              
+              <div className="mb-6 rounded-lg border border-violet-200 bg-violet-50 p-4">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-sm font-medium text-violet-800">Test Kullanıcısı</h3>
+                  <button
+                    type="button"
+                    onClick={() => setShowTestCredentials(!showTestCredentials)}
+                    className="text-sm text-violet-600 hover:underline"
+                  >
+                    {showTestCredentials ? 'Gizle' : 'Göster'}
+                  </button>
+                </div>
+                {showTestCredentials && (
+                  <div className="mt-2 space-y-1 text-sm">
+                    <p className="break-all"><span className="font-medium">Email:</span> {TEST_EMAIL}</p>
+                    <p><span className="font-medium">Şifre:</span> {TEST_PASSWORD}</p>
+                    <p className="mt-2 text-xs text-violet-700">Bu bilgileri kullanarak giriş yapabilirsiniz.</p>
+                  </div>
+                )}
+              </div>
 
               <form onSubmit={onSubmit} className="space-y-4">
                 <div>
@@ -152,6 +203,17 @@ export default function Login() {
                 <div className="h-px flex-1 bg-gray-200" />
                 <span className="px-3 text-xs text-gray-400">VEYA</span>
                 <div className="h-px flex-1 bg-gray-200" />
+              </div>
+
+              {/* Local SSO shortcut */}
+              <div className="mb-3">
+                <button
+                  type="button"
+                  onClick={handleSSOLogin}
+                  className="flex w-full items-center justify-center gap-2 rounded-xl border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-50"
+                >
+                  Giriş Yap (SSO)
+                </button>
               </div>
 
               {/* Social buttons */}
